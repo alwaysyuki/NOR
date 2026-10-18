@@ -1,0 +1,47 @@
+name: Build & Verify macOS App
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build NŌR App
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display Xcode Version
+        run: |
+          xcodebuild -version
+          xcrun --show-sdk-version
+
+      - name: Build Debug configuration
+        run: |
+          xcodebuild \
+            -project "Wallpaper engine.xcodeproj" \
+            -scheme "Wallpaper engine" \
+            -configuration Debug \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Build Release configuration
+        run: |
+          xcodebuild \
+            -project "Wallpaper engine.xcodeproj" \
+            -scheme "Wallpaper engine" \
+            -configuration Release \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build

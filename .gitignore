@@ -1,0 +1,72 @@
+# ==============================================================================
+# NŌR - Live Wallpaper Engine for macOS
+# Git Ignore Configuration
+# ==============================================================================
+
+# Xcode User Data & Local State (Contains local macOS usernames & paths)
+xcuserdata/
+*.xcuserdatad/
+*.xcuserstate
+*.xcbkptlist
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+
+# Build Products & Derived Data
+build/
+DerivedData/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.app.dSYM
+*.app.zip
+*.dmg
+*.pkg
+
+# AppKit / Xcode Perspectives
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+
+# Swift Package Manager
+.build/
+Packages/
+Package.pins
+Package.resolved
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+.swiftpm/configuration/
+
+# CocoaPods & Carthage (if used)
+Pods/
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# macOS System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Temporary files, logs & environment
+*.log
+*.tmp
+*.swp
+*.bak
+*~
+.cache/
+.env
+.env.local
+.env.*.local

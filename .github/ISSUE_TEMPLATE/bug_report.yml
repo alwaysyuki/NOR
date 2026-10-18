@@ -1,0 +1,59 @@
+name: 🐛 Bug Report
+description: File a bug report or issue encountered in NŌR
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue with **NŌR**! Please fill out the information below to help us diagnose and resolve it quickly.
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS Version
+      description: What version of macOS are you running? (e.g., macOS 14.5 Sonoma, macOS 15.0 Sequoia)
+      placeholder: e.g. macOS 14.5 (23F79)
+    validations:
+      required: true
+  - type: dropdown
+    id: architecture
+    attributes:
+      label: Mac Hardware Architecture
+      options:
+        - Apple Silicon (M1 / M2 / M3 / M4)
+        - Intel (x86_64)
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the problem is.
+      placeholder: Describe what happened...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed steps to reproduce the issue.
+      placeholder: |
+        1. Open NŌR
+        2. Import video 'sample.mp4'
+        3. Click 'Set as Desktop Wallpaper'
+        4. See error...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs or Crash Traces
+      description: Copy & paste any relevant Console output or crash logs here.
+      render: shell
