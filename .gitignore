@@ -15,13 +15,15 @@ xcuserdata/
 # Build Products & Derived Data
 build/
 DerivedData/
+release/
+*.zip
+*.sha256
 *.moved-aside
 *.hmap
 *.ipa
 *.dSYM.zip
 *.dSYM
 *.app.dSYM
-*.app.zip
 *.dmg
 *.pkg
 

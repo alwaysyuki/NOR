@@ -64,24 +64,24 @@ Unlike Electron or web-wrapper based wallpaper tools that consume excessive RAM 
 
 ```mermaid
 flowchart TD
-    App[NŌR Application] --> MenuBar[MenuBarManager]
-    App --> UI[ContentView (SwiftUI Studio)]
+    App["NŌR Application"] --> MenuBar["MenuBarManager"]
+    App --> UI["ContentView (SwiftUI Studio)"]
     
-    UI --> Gallery[WallpaperGalleryManager]
-    UI --> Playback[WallpaperPlaybackManager]
+    UI --> Gallery["WallpaperGalleryManager"]
+    UI --> Playback["WallpaperPlaybackManager"]
     
-    Playback --> DesktopWin[WallpaperWindowController]
-    DesktopWin --> Layer[AVPlayerLayer (Direct Zero-Copy Layer)]
+    Playback --> DesktopWin["WallpaperWindowController"]
+    DesktopWin --> Layer["AVPlayerLayer (Direct Zero-Copy Layer)"]
     
-    Monitor[FullScreenAppMonitor] -->|Space / Occlusion Change| Playback
-    Monitor -.->|Full-Screen Active| Pause[Suspend Video Decoding (0% GPU)]
-    Monitor -.->|App Window Open| Mute[Auto-Mute Sound]
-    Monitor -.->|Clean Desktop| Resume[Smooth Video & Audio Resume]
+    Monitor["FullScreenAppMonitor"] -->|Space / Occlusion Change| Playback
+    Monitor -.->|Full-Screen Active| Pause["Suspend Video Decoding (0% GPU)"]
+    Monitor -.->|App Window Open| Mute["Auto-Mute Sound"]
+    Monitor -.->|Clean Desktop| Resume["Smooth Video & Audio Resume"]
     
-    Import[Import Media] --> FormatCheck{Format?}
-    FormatCheck -->|MP4 / MOV / M4V| Direct[Native AVPlayer Playback]
-    FormatCheck -->|GIF / WebP / APNG| ImgIO[AnimatedImageConverter (ImageIO)]
-    FormatCheck -->|MKV / WebM| Transcode[VideoFormatConverter (VideoToolbox / FFmpeg)]
+    Import["Import Media"] --> FormatCheck{Format?}
+    FormatCheck -->|MP4 / MOV / M4V| Direct["Native AVPlayer Playback"]
+    FormatCheck -->|GIF / WebP / APNG| ImgIO["AnimatedImageConverter (ImageIO)"]
+    FormatCheck -->|MKV / WebM| Transcode["VideoFormatConverter (VideoToolbox / FFmpeg)"]
     ImgIO --> Gallery
     Transcode --> Gallery
 ```
@@ -112,7 +112,7 @@ flowchart TD
 - **Architecture**: Apple Silicon (M1/M2/M3/M4) or Intel Mac
 
 ### Option 1: Download Pre-built Release
-1. Navigate to the [Releases](https://github.com/Yuki-Mac/Wallpaper-Engine-NOR/releases) page.
+1. Navigate to the [Releases](https://github.com/alwaysyuki/NOR/releases) page.
 2. Download the latest `NŌR-macOS.zip`.
 3. Unzip and drag `NŌR.app` to your `/Applications` folder.
 4. Launch **NŌR** and add your favorite video or animated wallpaper!
@@ -123,8 +123,8 @@ flowchart TD
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Yuki-Mac/Wallpaper-Engine-NOR.git
-cd Wallpaper-Engine-NOR
+git clone https://github.com/alwaysyuki/NOR.git
+cd NOR
 ```
 
 ### 2. Open in Xcode
@@ -138,19 +138,12 @@ Select the **Wallpaper engine** scheme and press **⌘R** to build and run.
 xcodebuild -scheme "Wallpaper engine" -configuration Release build
 ```
 
-### 4. Create a Packaged Release (`.zip` + SHA256)
-We provide an automated build script:
-```bash
-./scripts/build_release.sh
-```
-The resulting release bundle will be available in the `./release` folder.
-
 ---
 
 ## 🗂️ Project Directory Structure
 
 ```text
-Wallpaper-Engine-NOR/
+NOR/
 ├── .github/
 │   ├── ISSUE_TEMPLATE/
 │   │   ├── bug_report.yml          # Structured bug report form
@@ -161,8 +154,6 @@ Wallpaper-Engine-NOR/
 │   └── pull_request_template.md    # Pull Request submission checklist
 ├── assets/
 │   └── logo.png                    # High-resolution application icon
-├── scripts/
-│   └── build_release.sh            # Automated release packaging script
 ├── Wallpaper engine/
 │   ├── Wallpaper_engineApp.swift   # App entry point & lifecycle
 │   ├── ContentView.swift           # Main SwiftUI Studio UI & controls
@@ -206,5 +197,5 @@ Distributed under the **MIT License**. See [LICENSE](LICENSE) for more informati
 ---
 
 <div align="center">
-  <sub>Crafted with precision for macOS. Made by <a href="https://github.com/Yuki-Mac">Yuki</a>.</sub>
+  <sub>Crafted with precision for macOS. Made by <a href="https://github.com/alwaysyuki">Yuki</a>.</sub>
 </div>

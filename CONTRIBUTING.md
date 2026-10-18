@@ -23,8 +23,8 @@ We are committed to providing a welcoming, diverse, and harassment-free environm
 
 1. **Fork and clone the repository:**
    ```bash
-   git clone https://github.com/<your-username>/Wallpaper-Engine-NOR.git
-   cd Wallpaper-Engine-NOR
+   git clone https://github.com/<your-username>/NOR.git
+   cd NOR
    ```
 
 2. **Open in Xcode:**
